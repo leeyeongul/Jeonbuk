@@ -32,7 +32,7 @@ class psds_callcenter :
             zip_file_path = "faiss_index_250206.zip"
 
             # Destination folder
-            destination_folder = "aiss_index_250206"
+            destination_folder = "faiss_index_250206"
 
             # Ensure the destination folder exists
             os.makedirs(destination_folder, exist_ok=True)
