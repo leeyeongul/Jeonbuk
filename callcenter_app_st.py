@@ -98,7 +98,7 @@ class psds_callcenter :
         # 쿼리 벡터 정규화
         normalized_query_embedding = self.normalize_vector(query_embedding)
         retrieved_docs = self.vectorstore.similarity_search_with_score_by_vector(normalized_query_embedding, k=k)
-
+        retrieved_docs = sorted(retrieved_docs, key=lambda x: x[1], reverse=True)
         self.prompt = self.create_prompt(query,retrieved_docs, cosine_threshold=self.cosine_threshold)
         messages = [
         {"role": "user", "content": f"""{self.prompt}"""}
